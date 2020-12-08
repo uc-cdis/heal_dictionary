@@ -8,13 +8,13 @@ script:
 - "./run_tests.sh"
 deploy:
   provider: s3
-  access_key_id:
+  access_key_id: AKIAZRNPHKJIAR3KICPX
   bucket: dictionary-artifacts
   local-dir: artifacts
-  upload-dir: midrc_dictionary/$TRAVIS_BRANCH
+  upload-dir: heal_dictionary/$TRAVIS_BRANCH
   skip_cleanup: true
   on:
     repo: uc-cdis/heal_dictionary
     all_branches: true
   secret_access_key:
-    secure:
+    secure: MXyAkqDbRny1fQgcYpBb1PXnhkV8iAIib1jGvH6+aLvIa4YAqvRrfvnFFBxMYpscXluUZAV34ZTyZpHm1qiei/b118JTa633FhRA2lCo9dn8wrhORBzTNOSFNLzsuz7UKCZVeMZbhywDad42ceViTHg1s/hZSEl9YwwYy3D8m5XyZL/VljVbnpWqut4Vb78zSE9d73LbX1R6rvjPyFY1xf1USQFr+0zPz4ktdJYr3oBRFvm4PPvkxihOoHGZs919lJSWHeYop7oylXR/8afCQp6V8NRbBOWajz19FsHcPsoDeVQpztqaI33FjQk+Jm5QBFiNr6FxKdy3/d86DqD0xqsJP6a0lKv/FEtr1rXwOn33bDWj0Fgx//+gD0e2sD8Bx6bjgk8N1/ayLX8jtpxfoU9xFFdkmC/CXey1vs5OWIoLnHeo6XCHeGUrBjtXC5REW6whQ9uItresMs+x6DolXIjiPZG9cApp7vVqeYtiBei533IEJ+FvLyW0LQp6WOl7dr/Smk0v3M6VyfWNRV3FMtDM8wVCNFc7xEH68hbt4Ygmv2QCtB0ym8UOGSAEDWXj4CdNJBZLDnDEeuOy/DQ5AugAEbZaWnalWLYG44f70fC5I/6yPgG0Cd74aPDzm0LvH6PYP5TQ4n2usyYuEKLpykEM2b3cndeHq2JUE0jeRnc=
