@@ -1,0 +1,70 @@
+$schema: "http://json-schema.org/draft-04/schema#"
+
+id: "open_access_doc"
+title: Open Access Doc
+type: object
+namespace: https://data.heal.org
+category: administrative
+program: '*'
+project: '*'
+description: "Open access documents related to a specific clinical trial."
+additionalProperties: false
+submittable: true
+validators: null
+
+systemProperties:
+  - id
+  - project_id
+  - created_datetime
+  - updated_datetime
+  - state
+
+links:
+  - name: core_metadata_collections
+    backref: open_access_docs
+    label: data_from
+    target_type: core_metadata_collection
+    multiplicity: many_to_one
+    required: true
+
+required:
+  - type
+  - submitter_id
+  - file_name
+  - file_size
+  - md5sum
+  - data_format
+  - doc_url
+
+uniqueKeys:
+  - [ id ]
+  - [ project_id, submitter_id ]
+
+properties:
+  $ref: "_definitions.yaml#/data_file_properties"
+
+  type:
+    type: string
+
+  data_category:
+    term:
+      $ref: "_terms.yaml#/data_category"
+    type: string
+
+  data_type:
+    term:
+      $ref: "_terms.yaml#/data_type"
+    type: string
+
+  data_format:
+    term:
+      $ref: "_terms.yaml#/data_format"
+    type: string
+
+  doc_url:
+   description: >
+    The originating URL of the document.
+   type: string
+
+  core_metadata_collections:
+    $ref: "_definitions.yaml#/to_one"
